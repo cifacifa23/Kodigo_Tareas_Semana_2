@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación Proyecto Vibecoding - CyberSpace Arcade</title>
+    <style>
+        :root {
+            --bg-color: #0c0c14;
+            --card-bg: #161625;
+            --accent-cyan: #66fcf1;
+            --accent-yellow: #f1c40f;
+            --accent-red: #e74c3c;
+            --text-main: #ffffff;
+            --text-muted: #b0b0c5;
+            --border-color: #2a2a40;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            width: 92%;
+            max-width: 1050px;
+            height: 82vh;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            flex-direction: column;
+            height: 100%;
+            overflow-y: auto;
+            padding-right: 15px;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        h1 {
+            color: var(--accent-cyan);
+            font-size: 1.5rem;
+            margin-bottom: 6px;
+        }
+
+        h2 {
+            color: var(--accent-yellow);
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 6px;
+        }
+
+        h3 {
+            color: var(--accent-cyan);
+            font-size: 1.05rem;
+            margin-top: 10px;
+            margin-bottom: 4px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 14px;
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 8px 12px;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-yellow);
+        }
+
+        p, li {
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        ul {
+            padding-left: 18px;
+        }
+
+        .prompt-box {
+            background-color: rgba(102, 252, 241, 0.05);
+            border-left: 4px solid var(--accent-cyan);
+            padding: 10px 12px;
+            border-radius: 4px;
+            margin: 6px 0 10px 0;
+            font-size: 0.85rem;
+        }
+
+        .code-snippet {
+            background-color: #08080f;
+            color: var(--accent-cyan);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            margin: 6px 0;
+            border: 1px solid var(--border-color);
+            display: inline-block;
+        }
+
+        .badge {
+            background-color: rgba(241, 196, 15, 0.15);
+            color: var(--accent-yellow);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.82rem;
+            font-family: monospace;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        button {
+            background-color: var(--accent-cyan);
+            color: var(--bg-color);
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.1s;
+        }
+
+        button:hover {
+            opacity: 0.85;
+            transform: translateY(-1px);
+        }
+
+        button:disabled {
+            background-color: var(--border-color);
+            color: var(--text-muted);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-counter {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-family: monospace;
+        }
+
+        /* Scrollbar styling */
+        .slide::-webkit-scrollbar {
+            width: 8px;
+        }
+        .slide::-webkit-scrollbar-thumb {
+            background-color: var(--border-color);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-container">
+        
+        <!-- Diapositiva 1: Portada y Aplicación -->
+        <div class="slide active" id="slide-1">
+            <h1>DOCUMENTO DE ENTREGA: PROYECTO VIBECODING</h1>
+            <div class="subtitle">
+                <strong>Materia:</strong> AI for Developers<br>
+                <strong>Proyecto:</strong> Vibecoding Guiado: Desarrollo de una Aplicación o Mini-Juego con IA como Copiloto
+            </div>
+            
+            <h2>1. Aplicación o Mini-juego Funcional</h2>
+            <p><strong>Descripción del Proyecto:</strong></p>
+            <p>Se desarrolló un videojuego arcade 2D completo titulado <strong>"CyberSpace Arcade"</strong> dentro del archivo script <strong><code>space_arcade.py</code></strong>, utilizando Python y la librería gráfica <code>pygame</code>. Presenta una interfaz moderna con resolución base de 800x800 píxeles, ventanas redimensionables y alternancia a pantalla completa (tecla F).</p>
+            
+            <p><strong>Características Técnicas:</strong></p>
+            <ul>
+                <li><strong>Selección de Dificultad:</strong> Menú interactivo que escala vidas y velocidad.</li>
+                <li><strong>Sistema de Jefes:</strong> Jefes cada 30 puntos con barras de salud, movimiento en senoide y ataques en abanico.</li>
+                <li><strong>Power-ups:</strong> Mejoras de armas (niveles 1 a 3), escudos y recuperación de vida.</li>
+                <li><strong>Efectos y Audio:</strong> Partículas físicas y audio procedural integrado con <code>pygame.mixer</code>.</li>
+                <li><strong>Persistencia:</strong> Récords guardados en formato JSON (<code>highscore.json</code>).</li>
+            </ul>
+        </div>
+
+        <!-- Diapositiva 2: Prompt Inicial -->
+        <div class="slide" id="slide-2">
+            <h2>2. Evidencia de Vibecoding</h2>
+            <h3>Prompt Base del Proyecto</h3>
+            <div class="prompt-box">
+                <p><strong>Qué se pidió a la IA:</strong></p>
+                <p><em>"Eres un desarrollador de videojuegos senior con experiencia en Python y Pygame. Necesito un script base, claro y ejecutable, de un pequeño shooter de naves en 2D.<br><br>
+                <strong>Requisitos del juego:</strong><br>
+                - Ventana redimensionable de 800x800 píxeles, con título descriptivo.<br>
+                - Una nave espacial controlada por el teclado, que se mueve con las flechas del teclado o con WASD (ambos deben funcionar a la vez).<br>
+                - La nave debe mantenerse dentro de los límites de la ventana durante todo el movimiento.<br>
+                - Disparos frontales: la nave dispara hacia arriba al pulsar la barra espaciadora (o una tecla de disparo clara), con una cadencia limitada para que no se disparen de forma continua e instantánea.<br>
+                - Meteoros que caen desde la parte superior de la ventana en posiciones aleatorias, con velocidades variables, y que se eliminan al salir por la parte inferior.<br>
+                - Los disparos deben poder destruir meteoros al impactar; los disparos que salen de la pantalla se eliminan.<br><br>
+                <strong>Expectativas del código:</strong><br>
+                - Un único archivo <code>.py</code> autocontenido, ejecutable con <code>python nombre_del_archivo.py</code>.<br>
+                - Usa un bucle principal estándar de Pygame con control de FPS mediante <code>pygame.time.Clock</code>.<br>
+                - Organiza el código con clases simples para la nave, los disparos y los meteoros, y comenta brevemente las partes clave en español.<br>
+                - Gestiona el cierre de la ventana y la tecla Escape para salir limpiamente.<br>
+                - No añadas puntuación, menús, sonidos ni imágenes externas salvo que sea imprescindible: usa figuras geométricas dibujadas con Pygame."</em></p>
+            </div>
+            <p><strong>Por qué se ajustó o refinó:</strong></p>
+            <p>Este prompt se utilizó como punto de partida técnico para establecer la arquitectura base del bucle de juego (<em>game loop</em>), el manejo simultáneo de entradas de teclado y las restricciones geométricas de límites y colisiones.</p>
+        </div>
+
+        <!-- Diapositiva 3: Prompt 2 -->
+        <div class="slide" id="slide-3">
+            <h2>2. Evidencia de Vibecoding</h2>
+            <h3>Prompt de Expansión (Dificultad y Partículas)</h3>
+            <div class="prompt-box">
+                <p><strong>Qué se pidió a la IA:</strong></p>
+                <p><em>"Añade un menú de selección de dificultad al inicio (Fácil, Normal, Difícil), un sistema de persistencia de récords máximos utilizando un archivo JSON local, y un sistema de partículas rectangulares con velocidad y vida decreciente para simular explosiones al destruir meteoros."</em></p>
+            </div>
+            <p><strong>Por qué se ajustó o refinó:</strong></p>
+            <p>Se refinó para introducir mecánicas de juego duraderas, escalabilidad de dificultad según el nivel seleccionado y un salto cualitativo en el apartado visual con efectos dinámicos de partículas.</p>
+        </div>
+
+        <!-- Diapositiva 4: Prompt 3 -->
+        <div class="slide" id="slide-4">
+            <h2>2. Evidencia de Vibecoding</h2>
+            <h3>Prompt de Mecánicas Avanzadas (Audio y Jefes)</h3>
+            <div class="prompt-box">
+                <p><strong>Qué se pidió a la IA:</strong></p>
+                <p><em>"Integra un sistema de audio procedural usando buffers de pygame.mixer para generar efectos de sonido sintéticos de disparos y explosiones, power-ups flotantes de mejora de armas, y un jefe final con movimiento ondulatorio en senoide y disparos en abanico."</em></p>
+            </div>
+            <p><strong>Por qué se ajustó o refinó:</strong></p>
+            <p>Necesario para dotar al juego de un diseño de mecánicas avanzadas y pulidas (<em>game polish</em>), logrando un producto funcional autónomo, inmersivo y sin dependencias de archivos externos.</p>
+        </div>
+
+        <!-- Diapositiva 5: Iteración y Mejora -->
+        <div class="slide" id="slide-5">
+            <h2>3. Iteración y Mejora</h2>
+            <p><strong>Modificación principal:</strong></p>
+            <p>El proyecto evolucionó de un script básico y estático a una aplicación modular basada en clases orientadas a objetos bien definidas dentro de <strong><code>space_arcade.py</code></strong>:</p>
+            <ul>
+                <li><span class="badge">Player</span> (Control, armas y escudo)</li>
+                <li><span class="badge">Meteor</span> (Obstáculos y velocidades)</li>
+                <li><span class="badge">Boss</span> (Jefes con patrones complejos)</li>
+                <li><span class="badge">Particle</span> (Efectos visuales)</li>
+                <li><span class="badge">PowerUp</span> (Mejoras flotantes)</li>
+            </ul>
+            <p style="margin-top: 6px;">Se optimizó el bucle de renderizado para soportar cambios dinámicos de tamaño en tiempo real (<code>pygame.VIDEORESIZE</code>) y controles de pausa avanzados (teclas P y ESC).</p>
+        </div>
+
+        <!-- Diapositiva 6: Validación del Resultado -->
+        <div class="slide" id="slide-6">
+            <h2>4. Validación del Resultado</h2>
+            <p><strong>Cómo se probó el código:</strong></p>
+            <ul>
+                <li>Se ejecutó el script localmente validando que la ventana inicial de 800x800 cargara sin errores de sintaxis.</li>
+                <li>Se probó la redimensión y alternancia a pantalla completa con la tecla <span class="badge">F</span>.</li>
+                <li>Se verificó la creación automática y lectura del archivo <code>highscore.json</code> al superar el récord.</li>
+                <li>Se probaron colisiones con jefes y recogida de power-ups para validar la progresión de armas.</li>
+            </ul>
+            <p><strong>Error o limitación identificada:</strong></p>
+            <p>En equipos sin tarjeta de sonido o controladores inactivos, <code>pygame.mixer</code> podía lanzar excepciones críticas.</p>
+            <p><strong>Ajuste realizado:</strong> Se envolvieron las funciones de audio en bloques <code>try-except</code>, asegurando una ejecución estable y fluida aunque no haya hardware de audio disponible.</p>
+        </div>
+
+        <!-- Diapositiva 7: Reflexión Final -->
+        <div class="slide" id="slide-7">
+            <h2>5. Reflexión Final</h2>
+            <p><strong>Aprendizaje y Ventajas del Vibecoding:</strong></p>
+            <p>Permite prototipar sistemas complejos (matemáticas de partículas, audio procedural, JSON) en minutos. Su mayor límite es que requiere supervisión humana para equilibrar las reglas del juego (*game balance*) y gestionar excepciones de hardware.</p>
+            <p><strong>Autoevaluación:</strong></p>
+            <ul>
+                <li><strong>Comprendo:</strong> El bucle principal por fotogramas (<code>CLOCK.tick(60)</code>), manipulación de listas y manejo de archivos JSON.</li>
+                <li><strong>Necesito reforzar:</strong> Técnicas avanzadas de optimización de renderizado para cientos de partículas simultáneas en equipos de bajos recursos.</li>
+            </ul>
+        </div>
+
+        <!-- Diapositiva 8: Librerías y Requisitos -->
+        <div class="slide" id="slide-8">
+            <h2>🛠️ Librerías y Ejecución de space_arcade.py</h2>
+            <p>Para que el juego funcione perfectamente, instala la librería externa ejecutando el siguiente comando en tu terminal:</p>
+            
+            <div class="code-snippet">
+                pip install pygame
+            </div>
+
+            <p style="margin-top: 6px;">Para iniciar y probar tu proyecto ejecutando el script principal:</p>
+            <div class="code-snippet">
+                python space_arcade.py
+            </div>
+
+            <p style="margin-top: 6px;"><strong>Librerías nativas de Python integradas (sin instalación extra):</strong></p>
+            <ul style="font-size: 0.85rem;">
+                <li><code>random</code>, <code>sys</code>, <code>json</code>, <code>os</code>, <code>math</code>, <code>array</code></li>
+            </ul>
+        </div>
+
+        <!-- Controles de Navegación -->
+        <div class="controls">
+            <button id="prev-btn" onclick="cambiarSlide(-1)" disabled>Anterior</button>
+            <span class="slide-counter" id="counter">Diapositiva 1 de 8</span>
+            <button id="next-btn" onclick="cambiarSlide(1)">Siguiente</button>
+        </div>
+
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 8;
+
+        function cambiarSlide(direccion) {
+            document.getElementById(`slide-${currentSlide}`).classList.remove('active');
+            currentSlide += direccion;
+            document.getElementById(`slide-${currentSlide}`).classList.add('active');
+
+            document.getElementById('counter').innerText = `Diapositiva ${currentSlide} de ${totalSlides}`;
+            document.getElementById('prev-btn').disabled = currentSlide === 1;
+            document.getElementById('next-btn').disabled = currentSlide === totalSlides;
+        }
+
+        // Navegación con teclado (Flechas Izquierda / Derecha)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' && currentSlide < totalSlides) {
+                cambiarSlide(1);
+            } else if (e.key === 'ArrowLeft' && currentSlide > 1) {
+                cambiarSlide(-1);
+            }
+        });
+    </script>
+</body>
+</html>
